@@ -28,3 +28,8 @@ Unable to cast object of type 'TptApp.Models.Seller' to type 'TptApp.Models.Buye
 ```
 
 This might make sense if the very first record failed, but it doesn't.
+
+# Problem solved!
+## Follow-up
+Thanks to David Browne - Microsoft, the solution was to turn tracking off for the query.
+https://stackoverflow.com/questions/79322601/strange-casting-problem-in-ef-tpt-table-per-type/79324091

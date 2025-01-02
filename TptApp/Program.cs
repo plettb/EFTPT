@@ -37,7 +37,7 @@ namespace TptApp
             Console.WriteLine($"Running with {recCount} records");
             try
             {
-                var sales = context.Sales.ToList();
+                var sales = context.Sales.AsNoTracking().ToList();
                 Console.WriteLine($"Sales count with nothing: {sales.Count}");
             }
             catch (Exception ex)
@@ -47,7 +47,7 @@ namespace TptApp
 
             try
             {
-                var sales = context.Sales.Include(s => s.Buyer).ToList();
+                var sales = context.Sales.Include(s => s.Buyer).AsNoTracking().ToList();
                 Console.WriteLine($"Sales count with buyer: {sales.Count}");
             }
             catch (Exception ex)
@@ -57,7 +57,7 @@ namespace TptApp
 
             try
             {
-                var sales = context.Sales.Include(s => s.Seller).ToList();
+                var sales = context.Sales.Include(s => s.Seller).AsNoTracking().ToList();
                 Console.WriteLine($"Sales count with seller: {sales.Count}");
             }
             catch (Exception ex)
@@ -67,7 +67,7 @@ namespace TptApp
 
             try
             {
-                var sales = context.Sales.Include(x => x.Buyer).Include(s => s.Seller).ToList();
+                var sales = context.Sales.Include(x => x.Buyer).Include(s => s.Seller).AsNoTracking().ToList();
                 Console.WriteLine($"Sales count with both: {sales.Count}");
             }
             catch (Exception ex)
